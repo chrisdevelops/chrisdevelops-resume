@@ -1,0 +1,299 @@
+/* ===================================
+   CSS Variables
+   =================================== */
+:root {
+  /* Colors */
+  --bg-warm-white: #faf9f6;
+  --bg-white: #fff;
+  --font-charcoal: #36454f;
+  --font-gray: #555;
+  --font-light-gray: #777;
+  --pastel-coral: #ff8a80;
+  --pastel-blue: #aec6cf;
+  --tag-bg: #eef7ff;
+  --tag-text: #364f6b;
+  --border-light: #f0f0f0;
+
+  /* Typography */
+  --heading-font: "Poppins", sans-serif;
+  --body-font: "Lato", sans-serif;
+
+  /* Spacing */
+  --container-max-width: 800px;
+  --container-padding: 40px;
+  --section-spacing: 30px;
+  --element-spacing: 20px;
+}
+
+/* ===================================
+   Base Styles
+   =================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--body-font);
+  background-color: var(--bg-warm-white);
+  color: var(--font-charcoal);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===================================
+   Container
+   =================================== */
+.resume-container {
+  max-width: var(--container-max-width);
+  margin: 40px auto;
+  padding: var(--container-padding);
+  background-color: var(--bg-white);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+}
+
+/* ===================================
+   Header
+   =================================== */
+header {
+  text-align: center;
+  border-bottom: 2px solid var(--pastel-blue);
+  padding-bottom: var(--element-spacing);
+  margin-bottom: var(--section-spacing);
+}
+
+header h1 {
+  font-family: var(--heading-font);
+  font-size: 2.8em;
+  font-weight: 700;
+  color: var(--font-charcoal);
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+
+.contact-info {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px 20px;
+  font-size: 0.95em;
+}
+
+.contact-info a {
+  color: var(--pastel-coral);
+  text-decoration: none;
+  font-weight: 700;
+  transition: color 0.3s ease;
+}
+
+.contact-info a:hover {
+  text-decoration: underline;
+}
+
+/* ===================================
+   Sections
+   =================================== */
+section {
+  margin-bottom: var(--section-spacing);
+}
+
+.section-title {
+  font-family: var(--heading-font);
+  font-size: 1.5em;
+  font-weight: 600;
+  color: var(--pastel-coral);
+  border-bottom: 2px solid var(--border-light);
+  padding-bottom: 8px;
+  margin-bottom: var(--element-spacing);
+  letter-spacing: 0.5px;
+}
+
+/* ===================================
+   Professional Summary
+   =================================== */
+#summary p {
+  margin: 0;
+}
+
+/* ===================================
+   Core Competencies
+   =================================== */
+.competencies-list {
+  list-style: none;
+}
+
+.competencies-list li {
+  margin-bottom: 15px;
+}
+
+.competencies-list strong {
+  color: var(--font-charcoal);
+  font-weight: 700;
+}
+
+/* ===================================
+   Experience & Projects
+   =================================== */
+.job {
+  margin-bottom: 25px;
+}
+
+.job-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  margin-bottom: 5px;
+}
+
+.job-title {
+  font-family: var(--heading-font);
+  font-size: 1.2em;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.job-company {
+  font-weight: 700;
+  margin: 0;
+}
+
+.job-dates {
+  font-style: italic;
+  color: var(--font-light-gray);
+  font-size: 0.9em;
+  margin: 0;
+}
+
+.job-description {
+  margin: 10px 0;
+  font-style: italic;
+}
+
+.subsection-title {
+  font-family: var(--heading-font);
+  font-size: 1em;
+  font-weight: 600;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  color: var(--font-charcoal);
+}
+
+.job ul {
+  padding-left: 20px;
+  margin-top: 10px;
+}
+
+.job li {
+  margin-bottom: 8px;
+}
+
+.tech-stack {
+  font-style: italic;
+  color: var(--font-gray);
+  margin-top: 10px;
+  font-size: 0.9em;
+}
+
+.key-learnings {
+  margin-top: 10px;
+  font-style: italic;
+}
+
+.references-note {
+  text-align: center;
+  color: var(--font-light-gray);
+  font-size: 0.9em;
+}
+
+/* ===================================
+   Skills Section
+   =================================== */
+.skills-category {
+  margin-bottom: 20px;
+}
+
+.skills-category:last-child {
+  margin-bottom: 0;
+}
+
+.skills-category-title {
+  font-family: var(--heading-font);
+  font-size: 1.1em;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: var(--font-charcoal);
+}
+
+.tag-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  display: inline-block;
+  background-color: var(--tag-bg);
+  color: var(--tag-text);
+  padding: 5px 12px;
+  border-radius: 15px;
+  font-size: 0.85em;
+  font-weight: 600;
+}
+
+/* ===================================
+   Responsive Design
+   =================================== */
+@media print {
+  body {
+    background-color: var(--bg-white);
+  }
+
+  .resume-container {
+    margin: 0;
+    padding: 20px;
+    box-shadow: none;
+  }
+
+  .contact-info a {
+    color: var(--font-charcoal);
+    text-decoration: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .resume-container {
+    margin: 10px;
+    padding: 20px;
+  }
+
+  header h1 {
+    font-size: 2em;
+  }
+
+  .job-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .job-dates {
+    margin-top: 5px;
+  }
+
+  .contact-info {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .section-title {
+    font-size: 1.3em;
+  }
+
+  .job-title {
+    font-size: 1.1em;
+  }
+}

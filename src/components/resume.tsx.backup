@@ -1,0 +1,376 @@
+'use client';
+
+import { motion } from 'motion/react';
+import { useInView } from 'motion/react';
+import { useRef } from 'react';
+import { Mail, Phone, MapPin, Linkedin } from 'lucide-react';
+
+function Section({ children, className = '' }: { children: React.ReactNode; className?: string }) {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const reduceMotion = typeof window !== 'undefined'
+    ? window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    : false;
+
+  return (
+    <motion.div
+      ref={ref}
+      initial={reduceMotion ? { opacity: 0 } : { opacity: 0, y: 20 }}
+      animate={isInView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: reduceMotion ? 0.15 : 0.4, ease: 'easeOut' }}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+export function Resume() {
+  const reduceMotion = typeof window !== 'undefined'
+    ? window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    : false;
+
+  return (
+    <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <motion.article
+        initial={reduceMotion ? { opacity: 0 } : { opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: reduceMotion ? 0.2 : 0.6, ease: 'easeOut', delay: 0.2 }}
+        className="bg-card rounded-2xl shadow-xl p-8 md:p-12 lg:p-16"
+      >
+        {/* Header */}
+        <header className="mb-12">
+          <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+            Chris Lloyd
+          </h1>
+          <ul className="flex flex-wrap items-center gap-4 text-muted-foreground text-sm md:text-base">
+            <li className="flex items-center gap-2">
+              <MapPin className="w-4 h-4 text-pastel-purple" />
+              Victoria, BC
+            </li>
+            <li aria-hidden="true" className="hidden sm:block">•</li>
+            <li className="flex items-center gap-2">
+              <Mail className="w-4 h-4 text-pastel-cyan" />
+              <a href="mailto:gearedcorp@gmail.com" className="hover:text-foreground transition-colors">
+                gearedcorp@gmail.com
+              </a>
+            </li>
+            <li aria-hidden="true" className="hidden sm:block">•</li>
+            <li className="flex items-center gap-2">
+              <Phone className="w-4 h-4 text-pastel-mint" />
+              <a href="tel:+17783162100" className="hover:text-foreground transition-colors">
+                (778) 316-2100
+              </a>
+            </li>
+            <li aria-hidden="true" className="hidden sm:block">•</li>
+            <li className="flex items-center gap-2">
+              <Linkedin className="w-4 h-4 text-pastel-pink" />
+              <a
+                href="https://www.linkedin.com/in/chrisdevelops/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-foreground transition-colors"
+              >
+                linkedin.com/in/chrisdevelops
+              </a>
+            </li>
+          </ul>
+        </header>
+
+        {/* Professional Summary */}
+        <Section className="mb-12">
+          <h2 className="text-2xl font-bold text-foreground mb-4 border-b-2 border-pastel-pink pb-2">
+            Professional Summary
+          </h2>
+          <p className="text-foreground/90 leading-relaxed">
+            Product Implementation Engineer with a business-first approach to technical problem-solving. Known for translating complex technical concepts into actionable solutions that stakeholders actually understand and use. Spent years helping enterprise customers troubleshoot integration challenges, building documentation that people read instead of ignoring, and identifying critical issues before they impact revenue. Currently exploring the intersection of AI and business automation while seeking opportunities to make a tangible impact on product implementation and customer success.
+          </p>
+        </Section>
+
+        {/* Core Competencies */}
+        <Section className="mb-12">
+          <h2 className="text-2xl font-bold text-foreground mb-4 border-b-2 border-pastel-cyan pb-2">
+            Core Competencies
+          </h2>
+          <ul className="space-y-4">
+            {[
+              {
+                title: 'Problem-Solving & Troubleshooting',
+                description: 'Solve problems systematically, whether technical, operational, or customer-facing - by understanding the gap between current and desired state',
+              },
+              {
+                title: 'Cross-Functional Communication',
+                description: 'Bridge the gap between engineering, sales, product, and customers by speaking everyone\'s language',
+              },
+              {
+                title: 'Documentation & Enablement',
+                description: 'Build comprehensive documentation that\'s structured for both human understanding and AI-assisted search, serving internal operations and external implementation needs',
+              },
+              {
+                title: 'Business & Product Thinking',
+                description: 'Understand what problems technology should solve and why, not just how to implement it',
+              },
+              {
+                title: 'Technical Depth',
+                description: 'Modern web stack (React, Next.js, Node.js), APIs, QA automation, AI/LLM integration, system architecture',
+              },
+              {
+                title: 'Rapid Learning',
+                description: 'Master new technologies and business domains quickly through hands-on experimentation and pattern recognition',
+              },
+            ].map((competency, index) => (
+              <li key={index} className="text-foreground/90">
+                <strong className="text-foreground">{competency.title}</strong> - {competency.description}
+              </li>
+            ))}
+          </ul>
+        </Section>
+
+        {/* Professional Experience */}
+        <Section className="mb-12">
+          <h2 className="text-2xl font-bold text-foreground mb-6 border-b-2 border-pastel-purple pb-2">
+            Professional Experience
+          </h2>
+
+          {/* Job 1: Product Implementation Engineer */}
+          <div className="mb-10">
+            <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-3">
+              <div>
+                <h3 className="text-xl font-bold text-foreground">Product Implementation Engineer</h3>
+                <p className="text-muted-foreground">Trulioo | Vancouver, BC (Remote)</p>
+              </div>
+              <p className="text-muted-foreground mt-1 md:mt-0">January 2022 - November 2024</p>
+            </div>
+            <p className="text-foreground/90 mb-4 italic">
+              Served as the technical translator between engineering and customers for a business verification platform, focusing on solving integration challenges that blocked revenue and adoption.
+            </p>
+
+            <h4 className="text-lg font-semibold text-pastel-purple mb-2">Customer Success & Technical Support</h4>
+            <ul className="list-disc list-outside ml-5 mb-4 space-y-1 text-foreground/90">
+              <li>Became the go-to expert for business verification integrations, translating technical API details into language that made sense for non-technical stakeholders</li>
+              <li>Proactively identified and escalated critical bugs costing customers time or money, distinguishing between cosmetic issues and business-critical problems</li>
+              <li>Stepped in when high-value customers hit integration roadblocks that couldn't be resolved through standard documentation</li>
+              <li>Filtered and translated vague customer bug reports into specific, actionable engineering tickets with clear reproduction steps</li>
+            </ul>
+
+            <h4 className="text-lg font-semibold text-pastel-purple mb-2">Documentation & Enablement</h4>
+            <ul className="list-disc list-outside ml-5 mb-4 space-y-1 text-foreground/90">
+              <li>Created practical documentation that customers actually used instead of marketing materials that collected digital dust</li>
+              <li>Built Postman test suites that demystified API functionality for non-developers and helped sales close deals by showing real working examples</li>
+              <li>Prepared comprehensive documentation and training ahead of feature releases by learning upcoming functionality before general availability</li>
+            </ul>
+
+            <p className="text-sm text-muted-foreground">
+              <strong className="text-foreground">Technical Stack:</strong> Postman, Jira, Confluence, Curl, JavaScript
+            </p>
+          </div>
+
+          {/* Job 2: Frontend Web Developer */}
+          <div className="mb-10">
+            <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-3">
+              <div>
+                <h3 className="text-xl font-bold text-foreground">Frontend Web Developer (Self-Employed)</h3>
+                <p className="text-muted-foreground">Elevate eCommerce Inc | Langley, BC (Hybrid)</p>
+              </div>
+              <p className="text-muted-foreground mt-1 md:mt-0">July 2020 - January 2022</p>
+            </div>
+            <p className="text-foreground/90 mb-4 italic">
+              Built custom Shopify stores tailored to specific business needs and workflows.
+            </p>
+
+            <h4 className="text-lg font-semibold text-pastel-cyan mb-2">Custom Development & Problem-Solving</h4>
+            <ul className="list-disc list-outside ml-5 mb-4 space-y-1 text-foreground/90">
+              <li>Built Shopify stores from scratch or rescued underperforming themes, tailoring solutions to actual business workflows</li>
+              <li>Integrated complex third-party services without breaking existing functionality</li>
+              <li>Set up analytics and conversion tracking that provided actionable insights</li>
+              <li>Built reusable component libraries to streamline development across multiple client projects</li>
+            </ul>
+
+            <h4 className="text-lg font-semibold text-pastel-cyan mb-2">Client Enablement & Support</h4>
+            <ul className="list-disc list-outside ml-5 mb-4 space-y-1 text-foreground/90">
+              <li>Trained non-technical business owners to manage and update their stores without ongoing developer help</li>
+              <li>Migrated businesses from legacy e-commerce platforms to Shopify while preserving data and functionality</li>
+            </ul>
+
+            <p className="text-sm text-muted-foreground">
+              <strong className="text-foreground">Technical Stack:</strong> JavaScript, React, Next.js, Vue, Shopify/Liquid, Node, HTML/CSS/SCSS, Tailwind
+            </p>
+          </div>
+
+          {/* Job 3: Full Stack Developer */}
+          <div className="mb-10">
+            <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-3">
+              <div>
+                <h3 className="text-xl font-bold text-foreground">Full Stack Developer (Contract)</h3>
+                <p className="text-muted-foreground">Blue Mountain Studio | Coquitlam, BC (Remote)</p>
+              </div>
+              <p className="text-muted-foreground mt-1 md:mt-0">2017 - June 2020</p>
+            </div>
+            <p className="text-foreground/90 mb-4 italic">
+              Built websites and applications for clients across various industries.
+            </p>
+
+            <h4 className="text-lg font-semibold text-pastel-mint mb-2">Product Development & Delivery</h4>
+            <ul className="list-disc list-outside ml-5 mb-4 space-y-1 text-foreground/90">
+              <li>Gathered requirements directly from clients to understand project needs and constraints</li>
+              <li>Turned feature requests into concrete deliverables with realistic timelines</li>
+              <li>Developed a complete MVP for a startup including user-facing app, admin dashboard, and backend API</li>
+              <li>Identified and resolved performance bottlenecks in existing websites</li>
+              <li>Managed projects from requirements gathering through deployment and maintenance</li>
+            </ul>
+
+            <p className="text-sm text-muted-foreground">
+              <strong className="text-foreground">Technical Stack:</strong> Vue, Node, Express, MongoDB, WordPress, WooCommerce, Shopify, JavaScript, PHP, HTML/CSS/SCSS, Tailwind
+            </p>
+          </div>
+
+          {/* Job 4: Senior QA Engineer */}
+          <div className="mb-10">
+            <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-3">
+              <div>
+                <h3 className="text-xl font-bold text-foreground">Senior QA Engineer</h3>
+                <p className="text-muted-foreground">Beanstream (Acquired by Bambora) | Victoria, BC</p>
+              </div>
+              <p className="text-muted-foreground mt-1 md:mt-0">March 2012 - July 2016</p>
+            </div>
+            <p className="text-foreground/90 mb-4 italic">
+              Managed releases and quality assurance for a payment processing platform.
+            </p>
+
+            <h4 className="text-lg font-semibold text-pastel-lavender mb-2">Release Management & Quality</h4>
+            <ul className="list-disc list-outside ml-5 mb-4 space-y-1 text-foreground/90">
+              <li>Made release decisions about feature inclusion and postponements based on quality thresholds</li>
+              <li>Communicated release status to technical and business stakeholders</li>
+              <li>Collaborated with developers to resolve critical issues before release</li>
+              <li>Built automated testing infrastructure to catch issues early</li>
+            </ul>
+
+            <h4 className="text-lg font-semibold text-pastel-lavender mb-2">Process Improvement</h4>
+            <ul className="list-disc list-outside ml-5 mb-4 space-y-1 text-foreground/90">
+              <li>Created time estimates for product planning</li>
+              <li>Improved CI/CD pipeline processes</li>
+              <li>Wrote testable acceptance criteria from requirements</li>
+            </ul>
+
+            <p className="text-sm text-muted-foreground">
+              <strong className="text-foreground">Technical Stack:</strong> Selenium, SoapUI, Groovy Script, Python, JavaScript, Java, Jenkins, Git
+            </p>
+          </div>
+
+          {/* Job 5: Technical Support Specialist */}
+          <div className="mb-10">
+            <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-3">
+              <div>
+                <h3 className="text-xl font-bold text-foreground">Technical Support Specialist</h3>
+                <p className="text-muted-foreground">Beanstream | Victoria, BC</p>
+              </div>
+              <p className="text-muted-foreground mt-1 md:mt-0">December 2009 - March 2012</p>
+            </div>
+            <p className="text-foreground/90 mb-4 italic">
+              Provided technical support to merchants using the payment processing platform.
+            </p>
+
+            <h4 className="text-lg font-semibold text-pastel-coral mb-2">Customer Problem-Solving</h4>
+            <ul className="list-disc list-outside ml-5 mb-4 space-y-1 text-foreground/90">
+              <li>Troubleshot technical issues and explained solutions clearly to non-technical users</li>
+              <li>Built internal tools that reduced resolution time for common issues by 50%</li>
+              <li>Created documentation that helped clients resolve problems independently</li>
+              <li>Identified recurring support patterns and recommended product improvements</li>
+              <li>Assisted merchants with PCI compliance requirements</li>
+            </ul>
+
+            <p className="text-sm text-muted-foreground">
+              <strong className="text-foreground">Technical Stack:</strong> PHP, MySQL, JavaScript, jQuery, HTML/CSS, VBScript
+            </p>
+          </div>
+        </Section>
+
+        {/* Recent Projects */}
+        <Section className="mb-12">
+          <h2 className="text-2xl font-bold text-foreground mb-6 border-b-2 border-pastel-coral pb-2">
+            Recent Projects & Continuous Learning
+          </h2>
+
+          <div className="mb-8">
+            <h3 className="text-xl font-bold text-foreground mb-2">AI Integration & Development (2024 - Present)</h3>
+            <p className="text-foreground/90 mb-3 italic">
+              Spent significant time understanding AI capabilities and limitations through hands-on experimentation, focusing on practical business applications rather than hype.
+            </p>
+            <ul className="list-disc list-outside ml-5 space-y-1 text-foreground/90">
+              <li>Explored local language models and data residency implications for enterprise adoption, anticipating business concerns around data sovereignty</li>
+              <li>Built development workflows using Claude Code with custom configurations to accelerate MVP development while maintaining code quality</li>
+              <li>Established rigorous code review practices for AI-generated code, looking for security issues, hard-coded values, performance bottlenecks, and PII handling</li>
+              <li>Co-founded Vizzi Voice, an AI voice agent startup for small-to-medium businesses, handling voice and SMS interactions for appointment scheduling, customer service, and sales</li>
+            </ul>
+          </div>
+
+          <div className="mb-8">
+            <h3 className="text-xl font-bold text-foreground mb-2">Business Development & Entrepreneurship (2024)</h3>
+            <p className="text-foreground/90 mb-3 italic">
+              Developed a comprehensive business plan for health focused cafe, including financial projections, supplier negotiations, menu development with cost breakdowns, and secured financing from Futurepreneur before market conditions shifted.
+            </p>
+            <p className="text-foreground/90">
+              <strong className="text-foreground">Key learnings:</strong> Financial modeling, business incorporation, supplier negotiation, product pricing and margins, marketing and sales, knowing when to walk away from sunk costs when fundamentals change.
+            </p>
+          </div>
+        </Section>
+
+        {/* Education & Skills */}
+        <Section className="mb-12">
+          <h2 className="text-2xl font-bold text-foreground mb-6 border-b-2 border-pastel-mint pb-2">
+            Education & Skills
+          </h2>
+
+          <div className="mb-6">
+            <h3 className="text-lg font-semibold text-foreground mb-3">Technical Skills</h3>
+            <div className="flex flex-wrap gap-2">
+              {['React', 'Next.js', 'Vue', 'Svelte', 'Sveltekit', 'Node.js', 'JavaScript', 'TypeScript', 'API Development', 'Shopify', 'Python', 'Git', 'CI/CD', 'QA Automation', 'LLM Integration'].map((skill) => (
+                <span
+                  key={skill}
+                  className="px-3 py-1 bg-pastel-purple/20 text-foreground rounded-full text-sm font-medium border border-pastel-purple/30 hover:bg-pastel-purple/30 transition-colors"
+                >
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <div className="mb-6">
+            <h3 className="text-lg font-semibold text-foreground mb-3">Business Skills</h3>
+            <div className="flex flex-wrap gap-2">
+              {['Financial Analysis', 'Vendor Negotiation', 'Customer Success', 'Technical Documentation', 'Stakeholder Communication', 'Product Thinking'].map((skill) => (
+                <span
+                  key={skill}
+                  className="px-3 py-1 bg-pastel-cyan/20 text-foreground rounded-full text-sm font-medium border border-pastel-cyan/30 hover:bg-pastel-cyan/30 transition-colors"
+                >
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <div className="mb-6">
+            <h3 className="text-lg font-semibold text-foreground mb-3">Approach</h3>
+            <div className="flex flex-wrap gap-2">
+              {['Business-First Problem Solving', 'Rapid Just-in-Time Learning', 'Holistic Understanding of Code and Context', 'Pragmatic Decision-Making'].map((skill) => (
+                <span
+                  key={skill}
+                  className="px-3 py-1 bg-pastel-pink/20 text-foreground rounded-full text-sm font-medium border border-pastel-pink/30 hover:bg-pastel-pink/30 transition-colors"
+                >
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </div>
+        </Section>
+
+        {/* References */}
+        <Section>
+          <p className="text-center text-muted-foreground italic">
+            References available upon request
+          </p>
+        </Section>
+      </motion.article>
+    </div>
+  );
+}
