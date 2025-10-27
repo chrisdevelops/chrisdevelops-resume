@@ -16,9 +16,7 @@ export function Resume() {
 
   return (
     <div className="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 print:px-0 print:py-0">
-      <div className="pl-4">
-        <PrintScrollButton />
-      </div>
+      <PrintScrollButton />
       <motion.article
         initial={reduceMotion ? { opacity: 0 } : { opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}

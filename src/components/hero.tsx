@@ -34,7 +34,7 @@ export function Hero() {
   };
 
   return (
-    <section className="relative min-h-[70vh] flex items-center justify-center overflow-visible pb-12 print:hidden">
+    <section className="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-12 md:pb-24 lg:pb-48 print:px-0 print:pt-0 print:pb-0">
       {/* Particle Background - Extended */}
       <div className="absolute inset-0 h-[150vh] -bottom-[80vh]">
         <ParticleBackground />
@@ -71,7 +71,7 @@ export function Hero() {
           className="text-base md:text-lg text-muted-foreground"
           variants={wordVariants}
         >
-          <Badge variant="outline" className="rounded text-base">
+          <Badge variant="outline" className="rounded text-base text-xs md:text-sm lg:text-base">
             Based in <span className="text-rose-500">Victoria, BC</span>, and looking for new opportunities
           </Badge>
           
