@@ -14,9 +14,27 @@ import PrintScrollButton from "../ui/print-button";
 export function Resume() {
   const reduceMotion = useReducedMotion();
 
+  const wordVariants = {
+    hidden: reduceMotion
+      ? { opacity: 0 }
+      : { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: reduceMotion ? 0.2 : 0.8,
+        ease: 'easeOut' as const,
+      },
+    },
+  };
+
   return (
     <div className="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 print:px-0 print:py-0">
-      <PrintScrollButton />
+      <motion.span
+        variants={wordVariants}
+      >
+        <PrintScrollButton />
+      </motion.span>
       <motion.article
         initial={reduceMotion ? { opacity: 0 } : { opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
