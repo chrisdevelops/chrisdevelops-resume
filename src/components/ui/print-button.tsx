@@ -1,5 +1,6 @@
 'use client';
 
+import { Button } from './button';
 import { useCallback } from 'react';
 
 export default function PrintScrollButton() {
@@ -31,21 +32,18 @@ export default function PrintScrollButton() {
     const bottom = document.documentElement.scrollHeight - window.innerHeight;
 
     await smoothScrollTo(bottom);
-    await sleep(150); // let lazy content/render settle
-
+    await sleep(100);
     await smoothScrollTo(0);
-    await sleep(150);
+    await sleep(100);
 
     window.print();
   }, []);
 
   return (
-    <button
-      type="button"
-      onClick={handleClick}
-      className="inline-flex items-center px-4 py-2 rounded-md bg-foreground text-background hover:opacity-90 transition"
-    >
-      Print Page
-    </button>
+    <Button
+        onClick={handleClick}
+        variant="outline">
+        Print Resume
+    </Button>
   );
 }

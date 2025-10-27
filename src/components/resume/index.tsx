@@ -9,6 +9,7 @@ import { ProfessionalExperience } from "./professional-experience";
 import { RecentProjects } from "./recent-projects";
 import { SkillsSection } from "./skills-section";
 import { References } from "./references";
+import PrintScrollButton from "../ui/print-button";
 
 export function Resume() {
   const reduceMotion = useReducedMotion();
@@ -25,6 +26,7 @@ export function Resume() {
         }}
         className="rounded-2xl shadow-xl p-8 md:p-12 lg:p-16 border bg-white dark:bg-[#14161b] border-border print:border-none print:shadow-none"
       >
+        <PrintScrollButton />
         <ResumeHeader />
         <ProfessionalSummary />
         <CoreCompetencies />

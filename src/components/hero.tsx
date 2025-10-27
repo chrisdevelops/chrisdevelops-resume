@@ -4,7 +4,6 @@ import { motion } from 'motion/react';
 import { ParticleBackground } from './particles';
 import { useReducedMotion } from '@/hooks/use-reduced-motion';
 import { Badge } from "@/components/ui/badge"
-import PrintScrollButton from './ui/print-button';
 
 export function Hero() {
   const reduceMotion = useReducedMotion();
@@ -77,7 +76,6 @@ export function Hero() {
           </Badge>
           
         </motion.p>
-        <PrintScrollButton />
       </motion.div>
     </section>
   );
