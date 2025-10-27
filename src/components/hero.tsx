@@ -34,7 +34,7 @@ export function Hero() {
   };
 
   return (
-    <section className="relative min-h-[70vh] flex items-center justify-center overflow-visible pb-24 print:hidden">
+    <section className="relative min-h-[70vh] flex items-center justify-center overflow-visible pb-12 print:hidden">
       {/* Particle Background - Extended */}
       <div className="absolute inset-0 h-[150vh] -bottom-[80vh]">
         <ParticleBackground />

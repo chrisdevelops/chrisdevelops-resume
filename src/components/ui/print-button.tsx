@@ -42,7 +42,8 @@ export default function PrintScrollButton() {
   return (
     <Button
         onClick={handleClick}
-        variant="outline">
+        variant="ghost"
+        className="print:none">
         Print Resume
     </Button>
   );
