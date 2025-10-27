@@ -34,7 +34,7 @@ export function Hero() {
   };
 
   return (
-    <section className="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-12 md:pb-24 lg:pb-48 print:px-0 print:pt-0 print:pb-0">
+    <section className="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-12 md:pb-24 lg:pb-48 print:hidden">
       {/* Particle Background - Extended */}
       <div className="absolute inset-0 h-[150vh] -bottom-[80vh]">
         <ParticleBackground />

@@ -32,9 +32,7 @@ export default function PrintScrollButton() {
     const bottom = document.documentElement.scrollHeight - window.innerHeight;
 
     await smoothScrollTo(bottom);
-    await sleep(100);
     await smoothScrollTo(0);
-    await sleep(100);
 
     window.print();
   }, []);
@@ -43,7 +41,7 @@ export default function PrintScrollButton() {
     <Button
         onClick={handleClick}
         variant="ghost"
-        className="text-sm md:text-base text-[#ba94e5] print:none">
+        className="text-sm md:text-base text-[#ba94e5]">
         Print Resume
     </Button>
   );
