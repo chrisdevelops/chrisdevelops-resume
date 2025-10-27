@@ -55,7 +55,7 @@ export function ParticleBackground() {
 
     const createParticles = () => {
       const particles: Particle[] = [];
-      const particleCount = 23; // 20-25 range
+      const particleCount = 30; // 20-25 range
 
       for (let i = 0; i < particleCount; i++) {
         const baseX = Math.random() * canvas.offsetWidth;
