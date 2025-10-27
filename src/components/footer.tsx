@@ -16,7 +16,7 @@ export function Footer() {
       initial={reduceMotion ? { opacity: 0 } : { opacity: 0, y: 20 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: reduceMotion ? 0.15 : 0.4, ease: "easeOut" }}
-      className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 text-center print:none"
+      className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 text-center print:hidden"
     >
       <div className="flex flex-col items-center justify-center gap-3 text-muted-foreground text-sm max-w-3xl mx-auto">
         <Sparkles className="w-5 h-5 text-pastel-purple" />
