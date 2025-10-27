@@ -4,7 +4,7 @@ import { motion } from 'motion/react';
 import { ParticleBackground } from './particles';
 import { useReducedMotion } from '@/hooks/use-reduced-motion';
 import { Badge } from "@/components/ui/badge"
-import {MapPin} from 'lucide-react'
+import PrintScrollButton from './ui/print-button';
 
 export function Hero() {
   const reduceMotion = useReducedMotion();
@@ -35,7 +35,7 @@ export function Hero() {
   };
 
   return (
-    <section className="relative min-h-[70vh] flex items-center justify-center overflow-visible pb-32 print:hidden">
+    <section className="relative min-h-[70vh] flex items-center justify-center overflow-visible pb-24 print:hidden">
       {/* Particle Background - Extended */}
       <div className="absolute inset-0 h-[150vh] -bottom-[80vh]">
         <ParticleBackground />
@@ -77,6 +77,7 @@ export function Hero() {
           </Badge>
           
         </motion.p>
+        <PrintScrollButton />
       </motion.div>
     </section>
   );
