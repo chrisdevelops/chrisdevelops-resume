@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <main className="pt-16">
+      <main className="pt-16 print:pt-0">
         <Hero />
         <Resume />
         <Footer />
