@@ -41,7 +41,7 @@ export function ResumeHeader() {
       <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
         Chris Lloyd
       </h1>
-      <ul className="flex flex-wrap items-center gap-4 text-muted-foreground text-sm md:text-base">
+      <ul className="flex flex-col sm:flex-row items-start sm:items-center flex-wrap gap-1 sm:gap-4 text-muted-foreground text-sm md:text-base">
         {contactInfo.map((item, index) => (
           <li key={item.text} className="flex items-center gap-2">
             {index > 0 && (
