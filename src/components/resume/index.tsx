@@ -31,7 +31,7 @@ export function Resume() {
   };
 
   return (
-    <div className="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 print:px-0 print:py-0">
+    <div className="relative z-20 px-4 sm:px-6 lg:px-8 py-12 print:px-0 print:py-0">
       <motion.span
         variants={wordVariants}
         initial="hidden"

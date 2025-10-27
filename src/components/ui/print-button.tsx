@@ -29,7 +29,7 @@ export default function PrintScrollButton() {
     });
 
   const handleClick = useCallback(async () => {
-    const bottom = document.documentElement.scrollHeight - window.innerHeight;
+    const bottom = document.documentElement.scrollHeight - (window.innerHeight + 200);
 
     await smoothScrollTo(bottom);
     await smoothScrollTo(0);
