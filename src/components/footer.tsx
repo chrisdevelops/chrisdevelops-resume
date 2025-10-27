@@ -20,12 +20,7 @@ export function Footer() {
     >
       <div className="flex flex-col items-center justify-center gap-3 text-muted-foreground text-sm max-w-3xl mx-auto">
         <Sparkles className="w-5 h-5 text-pastel-purple" />
-        <p className="text-center leading-relaxed">
-          This site was built collaboratively with AI. I reviewed every line of
-          code, made architectural decisions, and iteratively refined the
-          content to ensure it authentically represents who I am. AI accelerated
-          the process — I maintained the quality and direction.
-        </p>
+        <p className="text-center leading-relaxed italic">If you’re reading this, congrats—you’ve reached the footer. Now let’s build something awesome.</p>
       </div>
     </motion.footer>
   );
