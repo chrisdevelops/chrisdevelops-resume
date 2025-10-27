@@ -24,6 +24,8 @@ export function Resume() {
       transition: {
         duration: reduceMotion ? 0.2 : 0.8,
         ease: 'easeOut' as const,
+        // small entrance delay to stagger the button before the article
+        delay: reduceMotion ? 0 : 0.1,
       },
     },
   };
@@ -32,6 +34,9 @@ export function Resume() {
     <div className="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 print:px-0 print:py-0">
       <motion.span
         variants={wordVariants}
+        initial="hidden"
+        animate="visible"
+        className="inline-block"
       >
         <PrintScrollButton />
       </motion.span>
