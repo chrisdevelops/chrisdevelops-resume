@@ -7,6 +7,7 @@ import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
 import { useReducedMotion } from "@/hooks/use-reduced-motion";
 import { useScroll } from "@/hooks/use-scroll";
+import PrintScrollButton from "@/components/ui/print-button";
 
 export function Navbar() {
   const scrolled = useScroll(20);
@@ -36,18 +37,22 @@ export function Navbar() {
 
           {/* Theme Toggle */}
           {mounted && (
-            <Button
-              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              variant="ghost"
-              size="icon"
-              aria-label="Toggle theme"
-            >
-              {theme === "dark" ? (
-                <Sun className="w-5 h-5" />
-              ) : (
-                <Moon className="w-5 h-5" />
-              )}
-            </Button>
+            <div className="flex items-center gap-2">
+              <PrintScrollButton />
+              <Button
+                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                variant="ghost"
+                size="icon"
+                aria-label="Toggle theme"
+              >
+                {theme === "dark" ? (
+                  <Sun className="w-5 h-5" />
+                ) : (
+                  <Moon className="w-5 h-5" />
+                )}
+              </Button>
+            </div>
+            
           )}
         </div>
       </div>

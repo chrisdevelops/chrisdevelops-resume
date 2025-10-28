@@ -9,37 +9,12 @@ import { ProfessionalExperience } from "./professional-experience";
 import { RecentProjects } from "./recent-projects";
 import { SkillsSection } from "./skills-section";
 import { References } from "./references";
-import PrintScrollButton from "../ui/print-button";
 
 export function Resume() {
   const reduceMotion = useReducedMotion();
 
-  const wordVariants = {
-    hidden: reduceMotion
-      ? { opacity: 0 }
-      : { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: reduceMotion ? 0.2 : 0.8,
-        ease: 'easeOut' as const,
-        // small entrance delay to stagger the button before the article
-        delay: reduceMotion ? 0 : 0.1,
-      },
-    },
-  };
-
   return (
     <div className="relative max-w-5xl mx-auto z-20 px-4 sm:px-6 lg:px-8 py-12 print:px-0 print:py-0">
-      <motion.span
-        variants={wordVariants}
-        initial="hidden"
-        animate="visible"
-        className="inline-block"
-      >
-        <PrintScrollButton />
-      </motion.span>
       <motion.article
         initial={reduceMotion ? { opacity: 0 } : { opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}

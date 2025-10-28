@@ -41,7 +41,7 @@ export default function PrintScrollButton() {
     <Button
         onClick={handleClick}
         variant="ghost"
-        className="text-sm md:text-base text-[#ba94e5]">
+        className="text-sm md:text-base">
         Print Resume
     </Button>
   );
