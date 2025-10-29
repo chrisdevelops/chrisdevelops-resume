@@ -41,7 +41,7 @@ export default function PrintScrollButton() {
     <Button
         onClick={handleClick}
         variant="ghost"
-        className="text-sm font-[400]">
+        className="text-sm font-[400] hover:underline">
         Print Resume
     </Button>
   );
