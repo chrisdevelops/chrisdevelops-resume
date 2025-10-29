@@ -42,6 +42,7 @@ export function Navbar() {
               <Button
                 onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
                 variant="ghost"
+                className="hover:animate-spin"
                 size="icon"
                 aria-label="Toggle theme"
               >
